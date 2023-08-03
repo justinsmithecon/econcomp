@@ -23,8 +23,15 @@ Report last updated `r now()`.
 ```{r}
 data <- read_xlsx("predictions.xlsx")
 
-row <- data.frame(Sys.Date(), rmse(data$y, data$yhat))
+row <- data.frame(Sys.Date(), Sys.time(), rmse(data$y, data$yhat))
 
 row %>%
-  gt()
+  gt() %>%
+  tab_header(title = "Current RMSE") %>%
+  cols_label(
+    Sys.Date() = "Date",
+    Sys.time() = "Time",
+    rmse(data$y, data$yhat) = "RMSE"
+  )
+  
 ```
