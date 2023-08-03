@@ -28,6 +28,7 @@ jobs:
             any::Metrics
             any::readxl
             any::writexl
+            any::gt
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
