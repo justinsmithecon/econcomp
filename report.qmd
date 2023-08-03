@@ -31,7 +31,10 @@ lboard <- function(x){
   return(row)
 }
 
-x<-lapply(filenames, lboard) %>% {as.data.frame(do.call(rbind, .))} %>% arrange(V4)
+x<-lapply(filenames, lboard) %>% 
+  {as.data.frame(do.call(rbind, .))} %>% 
+  mutate(across(c(V2, V4), as.numeric), V2 = as.Date(V2)) %>%
+  arrange(V4)
   
 
 x %>%
