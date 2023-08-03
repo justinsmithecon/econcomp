@@ -1,0 +1,30 @@
+---
+title: "Report"
+format: html
+execute: 
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+library(tidyverse)
+library(Metrics)
+library(readxl)
+library(writexl)
+library(gt)
+```
+
+
+
+
+Report last updated `r now()`.
+
+```{r}
+data <- read_xlsx("predictions.xlsx")
+
+row <- data.frame(Sys.Date(), rmse(data$y, data$yhat))
+
+row %>%
+  gt()
+```
