@@ -21,16 +21,25 @@ library(gt)
 Report last updated `r now()`.
 
 ```{r}
-data <- read_xlsx("predictions.xlsx")
 
-row <- data.frame(Sys.Date(), format(Sys.time(),'%H:%M'), rmse(data$y, data$yhat))
+filenames <- list.files("data", pattern="*.xlsx", full.names=TRUE)
 
-row %>%
-  gt() %>%
-  tab_header(title = "Current RMSE") %>%
-  cols_label(
-    Sys.Date.. = "Date",
-    format.Sys.time......H..M.. = "Time",
-    rmse.data.y..data.yhat. = "RMSE")
+lboard <- function(x){
+  groupname <-str_replace_all(x,  c("data/predictions_" = "", ".xlsx" = ""))
+  data <- read_xlsx(x)
+  row <- c(groupname, Sys.Date(), format(Sys.time(),'%H:%M'), rmse(data$y, data$yhat))
+  return(row)
+}
+
+x<-lapply(filenames, lboard) %>% {as.data.frame(do.call(rbind, .))} %>% arrange(V4)
   
+
+x %>%
+  gt() %>%
+  tab_header(title = "Leader Board") %>%
+  cols_label(
+    V1 = "Group Name",
+    V2 = "Date",
+    V3 = "Time",
+    V4 = "RMSE")
 ```

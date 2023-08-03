@@ -1,27 +1,3 @@
----
-title: "Report"
-format: html
-execute: 
-  echo: false
-  warning: false
-  message: false
----
-
-```{r}
-library(tidyverse)
-library(Metrics)
-library(readxl)
-library(writexl)
-library(gt)
-```
-
-
-
-
-Report last updated `r now()`.
-
-```{r}
-
 filenames <- list.files("data", pattern="*.xlsx", full.names=TRUE)
 
 lboard <- function(x){
@@ -31,7 +7,7 @@ lboard <- function(x){
   return(row)
 }
 
-x<-lapply(filenames, lboard) %>% {as.data.frame(do.call(rbind, .))} %>% arrange(V4)
+x<-lapply(filenames, lboard) %>% {as.data.frame(do.call(rbind, .))} %>% arrange(desc(V4))
   
 
 x %>%
@@ -42,4 +18,3 @@ x %>%
     V2 = "Date",
     V3 = "Time",
     V4 = "RMSE")
-```
