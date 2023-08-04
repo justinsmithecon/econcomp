@@ -8,6 +8,8 @@ name: Quarto Publish
 jobs:
   build-deploy:
     runs-on: windows-latest
+    env:
+      DATA_FOLDER: ${{ secrets.DATA_FOLDER }}
     permissions:
       contents: write
     steps:
@@ -29,11 +31,10 @@ jobs:
             any::readxl
             any::writexl
             any::gt
-
+            
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         with:
           target: gh-pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DATA_FOLDER: ${{ secrets.DATA_FOLDER }}
