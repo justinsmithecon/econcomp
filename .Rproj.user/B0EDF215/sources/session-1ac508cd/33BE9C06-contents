@@ -6,9 +6,15 @@ library(gt)
 library(googledrive)
 
 #filenames <- list.files("data", pattern="*.xlsx", full.names=TRUE)
+drivefiles %>% rowwise() %>% mutate(num = drive_resource$createdTime)
+
+drivefiles <- drive_ls(DATA_FOLDER, pattern = "prediction") %>%
+  rowwise() %>% 
+  mutate(time = drive_resource$createdTime) %>%
+  group_by(name) %>%
+  slice_max(time)
 
 
-drivefiles <- drive_ls(DATA_FOLDER, pattern = "prediction")
 for (file_id in drivefiles$id) {
   drive_download(as_id(file_id), overwrite = TRUE)
 }

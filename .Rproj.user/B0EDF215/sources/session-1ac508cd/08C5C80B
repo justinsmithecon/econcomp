@@ -1,27 +1,28 @@
 {
-    "id": "33BE9C06",
+    "id": "08C5C80B",
     "path": null,
     "project_path": null,
-    "type": "r_source",
+    "type": "object_explorer",
     "hash": "0",
     "contents": "",
-    "dirty": true,
-    "created": 1691158982978.0,
+    "dirty": false,
+    "created": 1691178086395.0,
     "source_on_save": false,
     "relative_order": 6,
     "properties": {
-        "tempName": "Untitled1",
+        "id": "f2cec24e63cc403abfa3983395df0659",
+        "name": "drivefiles[[3]][[2]]",
+        "title": "drivefiles[[3]][[2]]",
+        "language": "R",
         "source_window_id": "",
-        "Source": "Source",
-        "cursorPosition": "10,0",
-        "scrollLine": "0"
+        "Source": "Source"
     },
     "folds": "",
     "lastKnownWriteTime": 0,
     "encoding": "",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1691179366373,
+    "last_content_update": 1691178086395,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -21,7 +21,12 @@ Report last updated `r now()`.
 ```{r}
 DATA_FOLDER <- Sys.getenv("DATA_FOLDER")
 drive_deauth()
-drivefiles <- drive_ls(DATA_FOLDER, pattern = "prediction")
+drivefiles <- drive_ls(DATA_FOLDER, pattern = "prediction") %>%
+  rowwise() %>% 
+  mutate(time = drive_resource$createdTime) %>%
+  group_by(name) %>%
+  slice_max(time) %>%
+  select(name, id)
 for (file_id in drivefiles$id) {
   drive_download(as_id(file_id), overwrite = TRUE)
 }
