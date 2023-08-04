@@ -13,6 +13,7 @@ library(Metrics)
 library(readxl)
 library(writexl)
 library(gt)
+library(googledrive)
 ```
 
 
@@ -22,10 +23,15 @@ Report last updated `r now()`.
 
 ```{r}
 
-filenames <- list.files("data", pattern="*.xlsx", full.names=TRUE)
+drivefiles <- drive_ls("https://drive.google.com/drive/folders/1mjTgAcQxl23c0nfKCqqrVJfNXtvU4A2l")
+for (file_id in drivefiles$id) {
+  drive_download(as_id(file_id), overwrite = TRUE)
+}
+
+filenames <- drivefiles %>% pull(name)
 
 lboard <- function(x){
-  groupname <-str_replace_all(x,  c("data/predictions_" = "", ".xlsx" = ""))
+  groupname <-str_replace_all(x,  c("predictions_" = "", ".xlsx" = ""))
   data <- read_xlsx(x)
   row <- c(groupname, Sys.Date(), format(Sys.time(),'%H:%M'), rmse(data$y, data$yhat))
   return(row)
@@ -35,7 +41,7 @@ x<-lapply(filenames, lboard) %>%
   {as.data.frame(do.call(rbind, .))} %>% 
   mutate(across(c(V2, V4), as.numeric), V2 = as.Date(V2)) %>%
   arrange(V4)
-  
+
 
 x %>%
   gt() %>%

@@ -1,27 +1,12 @@
----
-title: "Report"
-format: html
-execute: 
-  echo: false
-  warning: false
-  message: false
----
-
-```{r}
 library(tidyverse)
 library(Metrics)
 library(readxl)
 library(writexl)
 library(gt)
 library(googledrive)
-```
 
+#filenames <- list.files("data", pattern="*.xlsx", full.names=TRUE)
 
-
-
-Report last updated `r now()`.
-
-```{r}
 
 drivefiles <- drive_ls("https://drive.google.com/drive/folders/1mjTgAcQxl23c0nfKCqqrVJfNXtvU4A2l")
 for (file_id in drivefiles$id) {
@@ -51,4 +36,3 @@ x %>%
     V2 = "Date",
     V3 = "Time",
     V4 = "RMSE")
-```
