@@ -31,6 +31,11 @@ jobs:
             any::readxl
             any::writexl
             any::gt
+
+      - name: Create and populate .Renviron file
+        run: |
+          echo DATA_FOLDER="$DATA_FOLDER" >> ~/.Renviron
+          shell: bash
             
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
