@@ -22,7 +22,7 @@ library(googledrive)
 Report last updated `r now()`.
 
 ```{r}
-
+drive_deauth()
 drivefiles <- drive_ls("https://drive.google.com/drive/folders/1mjTgAcQxl23c0nfKCqqrVJfNXtvU4A2l")
 for (file_id in drivefiles$id) {
   drive_download(as_id(file_id), overwrite = TRUE)
