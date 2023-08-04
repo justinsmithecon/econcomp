@@ -8,7 +8,7 @@ library(googledrive)
 #filenames <- list.files("data", pattern="*.xlsx", full.names=TRUE)
 
 
-drivefiles <- drive_ls("https://drive.google.com/drive/folders/1mjTgAcQxl23c0nfKCqqrVJfNXtvU4A2l")
+drivefiles <- drive_ls(DATA_FOLDER, pattern = "prediction")
 for (file_id in drivefiles$id) {
   drive_download(as_id(file_id), overwrite = TRUE)
 }
@@ -16,7 +16,7 @@ for (file_id in drivefiles$id) {
 filenames <- drivefiles %>% pull(name)
 
 lboard <- function(x){
-  groupname <-str_replace_all(x,  c("predictions_" = "", ".xlsx" = ""))
+  groupname <-str_extract(x, "group\\d") %>% str_replace("group", "group ") %>% str_to_title()
   data <- read_xlsx(x)
   row <- c(groupname, Sys.Date(), format(Sys.time(),'%H:%M'), rmse(data$y, data$yhat))
   return(row)
