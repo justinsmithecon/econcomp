@@ -1,6 +1,5 @@
 ---
 title: "Report"
-format: html
 execute: 
   echo: false
   warning: false
