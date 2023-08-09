@@ -15,17 +15,63 @@ The objective of this year's competition is to predict immigration levels in Can
 
 Each submission is scored on its **Root Mean Square Error (RMSE)***.  The submission with the lowest RMSE wins.
 
-## Timeline
+### Timeline
 
 - **Sign Up a Team** - September 11, 2023 - October 1, 2023
 - **Create Model and Submit Predictions** - October 1, 2023 - March 1, 2024
 - **Competition Deadline** - 11:59pm, March 1, 2024.
 - **Winners Announced** - TBA
 
-## Prizes
+### Prizes
 
 - **1st Place**: $600 split between team members, plus Laurier Economics swag.
 - **2nd Place**: $150 split between team members, plus Laurier Economics swag.
 
 Additional Laurier Economics swag will be provided through a random draw among participating teams.
 
+
+## Data
+
+The underlying data for the competition is the 2021 Canada Census.  Statistics Canada provides various public use versions of this data, including public use microdata files, and "profiles," which are aggregated Census records at a specific level of geography.  The competition uses the profile for Census Sub-Divisions, which are the same as municipalities.
+
+The data have been separated into a "test" dataset and an "evaluation" dataset.  You will create and train your model with the test dataset, which consists of half of the municipalities chosen at random, and includes: a) a host of Census variables that you will use as inputs into your model, and b) the level of immigration that you are trying to predict.  Once you have a submission ready you will generate your predictions with the evaluation dataset, which consists of the other half of the municipalities, and only includes the Census inputs.  The true immigration levels in the evaluation data are hidden from competitors.
+
+When you submit your predictions based on the evaluation data, we will compute the RMSE using the true immigration levels for those records and report it on the leaderboard.
+
+- Test Data:
+- Evaluation Data:
+
+## Submissions
+
+All submissions must be in **.csv** format, and contain only two columns: 1) **csd_id**, the numeric ID number for the municipality; 2) **pimm**, the prediction of immigration levels for that municipality.
+
+The .csv files must be named with your group name in all lower case letters and no spaces.  For instance, if your team name is "The Deadweight Losses" then your submissions must all be named **thedeadweightlosses.csv**
+
+Submit your .csv files here:
+
+
+## Rules
+
+**Students can only belong to one team**
+
+A student can only be on a single team
+
+**No sharing code privately between teams**
+
+Each team must work independently to complete the predictions. The one exception is that teams may share code publicly with everyone in the competition 
+
+**Team limits**
+
+Teams of up to 3 students are allowed.
+
+**Cannot predict immigration levels equal to itself**
+
+You must submit an actual number for your predictions based on the evaluation data.  You cannot simply say that immigration levels are equal to themselves.
+
+**Eligibility**
+
+Eligible participants are Laurier students whose major is Economics, Economics and Accounting, Economics and Financial Management, or Economics and Data Analytics during the signup period.  If a student subsequently switches programs, they can remain in the competition.
+
+**Submitting Code**
+
+Students must provide the code that generated their predictions for their final submission only.  The code must run and generate the submitted output, otherwise the team is disqualified.

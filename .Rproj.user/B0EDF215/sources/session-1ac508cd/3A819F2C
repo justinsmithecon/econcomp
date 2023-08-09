@@ -3,7 +3,7 @@
     "path": "~/Library/CloudStorage/OneDrive-WilfridLaurierUniversity/Administrative/UG Chair/econcomp2/index.qmd",
     "project_path": "index.qmd",
     "type": "quarto_markdown",
-    "hash": "1336179908",
+    "hash": "3529808876",
     "contents": "",
     "dirty": false,
     "created": 1691526982433.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "31,0",
-        "scrollLine": "0"
+        "cursorPosition": "47,218",
+        "scrollLine": "20"
     },
     "folds": "",
-    "lastKnownWriteTime": 1691609705,
+    "lastKnownWriteTime": 1691613075,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1691609705933,
+    "last_content_update": 1691613075940,
     "read_only": false,
     "read_only_alternatives": []
 }
