@@ -1,22 +1,0 @@
-"0","drive_deauth()"
-"0","drivefiles <- drive_ls(""https://drive.google.com/drive/folders/1mjTgAcQxl23c0nfKCqqrVJfNXtvU4A2l"")"
-"2",""
-"2"," "
-"0","for (file_id in drivefiles$id) {"
-"0","  drive_download(as_id(file_id), overwrite = TRUE)"
-"0","}"
-"2","File downloaded:
-"
-"2","• [36mUntitled form[39m [90m<id: 17z_TWCZ2bEaO5GP0kWiMGwIm6t6MH3JNPCMV7Mv0jvE>[39m
-"
-"2","Saved locally as:
-"
-"2","• ]8;;file:///Users/jsmith/Library/CloudStorage/OneDrive-WilfridLaurierUniversity/Administrative/UG Chair/econcomp2/Untitled form.zip[34mUntitled form.zip[39m]8;;
-"
-"1","[1m[33mError[39m in `get_export_mime_type()`:[22m
-[38;5;232m[33m![38;5;232m Not a recognized Google MIME type:
-[31m✖[38;5;232m [32mapplication/vnd.google-apps.folder[38;5;232m[39m
-Backtrace:
-[90m 1. [39m[1mgoogledrive[22m::drive_download(as_id(file_id), overwrite = TRUE)
-[90m 3. [39m[1m[94mgoogledrive:::get_export_mime_type([39m[22mmime_type[1m[94m)[39m[22m
-"
