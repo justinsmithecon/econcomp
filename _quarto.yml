@@ -7,7 +7,8 @@ website:
   site-url: "https://justinsmithecon.github.io/econcomp2" 
     
   sidebar:
-    logo: "images/smith.png"
+    logo: "images/hexsmith.png"
+    title: "Students Mastering Intriguing Testable Hypotheses"
     pinned: true
     align: center
     style: "docked"
