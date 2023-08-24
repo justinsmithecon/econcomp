@@ -1,0 +1,42 @@
+library(tidyverse)
+library(haven)
+
+set.seed(9801178)
+
+dataorig <- read_csv("~/Library/CloudStorage/OneDrive-WilfridLaurierUniversity/Administrative/UG Chair/census_data_all.csv") %>%
+  rename_with(tolower) %>%
+  mutate(idnum = row_number(), countna = rowSums(is.na(.))) %>%
+  filter(countna == 0) %>%
+  mutate(sample = runif(nrow(.), 0, 1) <.5) %>%
+  select(-c(countna, col0:col6, col57:59)) %>%
+  relocate(idnum)
+
+
+testdata <- dataorig %>%
+  filter(sample == TRUE) %>%
+  select(-sample)
+
+write_csv(testdata, "~/Library/CloudStorage/OneDrive-WilfridLaurierUniversity/Administrative/UG Chair/econcomp2/testdata.csv")
+write_dta(testdata, "~/Library/CloudStorage/OneDrive-WilfridLaurierUniversity/Administrative/UG Chair/econcomp2/testdata.dta")
+
+evaldata <- dataorig %>%
+  filter(sample == FALSE) %>%
+  select(-sample, -col87)
+
+write_csv(evaldata, "~/Library/CloudStorage/OneDrive-WilfridLaurierUniversity/Administrative/UG Chair/econcomp2/evaldata.csv")
+write_dta(evaldata, "~/Library/CloudStorage/OneDrive-WilfridLaurierUniversity/Administrative/UG Chair/econcomp2/evaldata.dta")
+
+evaloutcome <- dataorig %>%
+  filter(sample == FALSE) %>%
+  select(idnum, col87)
+
+write_csv(evaloutcome, "~/Library/CloudStorage/OneDrive-WilfridLaurierUniversity/Administrative/UG Chair/evaloutcome.csv")
+
+test <- lm(col87 ~ col14 + col33 + col70, data = testdata)
+evaldata$prediction <- predict(test, newdata = evaldata)
+output <- select(evaldata, idnum, prediction)
+write_csv(output, "~/Library/CloudStorage/OneDrive-WilfridLaurierUniversity/Administrative/UG Chair/econcomp2/group1 - prediction.csv")
+
+xx<- full_join(output, evaloutcome, by = "idnum")
+
+

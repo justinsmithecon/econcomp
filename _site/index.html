@@ -196,10 +196,25 @@ ul.task-list li input[type="checkbox"] {
 <p>The underlying data for the competition is the 2021 Canada Census. Statistics Canada provides various public use versions of this data, including public use microdata files, and “profiles,” which are aggregated Census records at a specific level of geography. The competition uses the profile for Census Sub-Divisions, which are the same as municipalities.</p>
 <p>The data have been separated into a “test” dataset and an “evaluation” dataset. You will create and train your model with the test dataset, which consists of half of the municipalities chosen at random, and includes: a) a host of Census variables that you will use as inputs into your model, and b) the level of immigration that you are trying to predict. Once you have a submission ready you will generate your predictions with the evaluation dataset, which consists of the other half of the municipalities, and only includes the Census inputs. The true immigration levels in the evaluation data are hidden from competitors.</p>
 <p>When you submit your predictions based on the evaluation data, we will compute the RMSE using the true immigration levels for those records and report it on the leaderboard.</p>
-<ul>
-<li>Test Data:</li>
-<li>Evaluation Data:</li>
-</ul>
+<table class="table">
+<tbody>
+<tr class="odd">
+<td>File Type</td>
+<td>Test Data</td>
+<td>Evaluation Data</td>
+</tr>
+<tr class="even">
+<td>csv</td>
+<td><a href="testdata.csv">testdata.csv</a></td>
+<td><a href="evaldata.csv">evaldata.csv</a></td>
+</tr>
+<tr class="odd">
+<td>dta</td>
+<td><a href="testdata.dta">testdata.dta</a></td>
+<td><a href="evaldata.dta">evaldata.dta</a></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="submissions" class="level2">
 <h2 class="anchored" data-anchor-id="submissions">Submissions</h2>
