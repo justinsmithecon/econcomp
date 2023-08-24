@@ -4,7 +4,7 @@
     "href": "report.html",
     "title": "Leaderboard",
     "section": "",
-    "text": "Leader Board\n    \n    \n    \n      Group Name\n      Date\n      Time\n      RMSE\n    \n  \n  \n    Group 1\n2023-08-24\n20:02\n9706.883\n  \n  \n  \n\n\n\n\nLast updated 2023-08-24"
+    "text": "Leader Board\n    \n    \n    \n      Group Name\n      Date\n      Time\n      RMSE\n    \n  \n  \n    Group 1\n2023-08-24\n20:33\nNaN\n  \n  \n  \n\n\n\n\nLast updated 2023-08-24"
   },
   {
     "objectID": "index.html",
@@ -32,7 +32,7 @@
     "href": "index.html#submissions",
     "title": "Students Mastering Intriguing Testable Hypotheses",
     "section": "Submissions",
-    "text": "Submissions\nAll submissions must be in .csv format, and contain only two columns: 1) csd_id, the numeric ID number for the municipality; 2) pimm, the prediction of immigration levels for that municipality.\nThe .csv files must be named with your group name in all lower case letters and no spaces. For instance, if your team name is “The Deadweight Losses” then your submissions must all be named thedeadweightlosses.csv\nSubmit your .csv files here:"
+    "text": "Submissions\nAll submissions must be in .csv format, and contain only two columns: 1) csdid, the numeric ID number for the municipality; 2) pimm, the prediction of immigration levels for that municipality.\nThe .csv files must be named with your group name in all lower case letters and no spaces. For instance, if your team name is “The Deadweight Losses” then your submissions must all be named thedeadweightlosses.csv\nSubmit your .csv files here:"
   },
   {
     "objectID": "index.html#rules",
