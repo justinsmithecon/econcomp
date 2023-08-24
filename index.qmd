@@ -40,8 +40,8 @@ When you submit your predictions based on the evaluation data, we will compute t
 |           |                              |                              |
 |-----------|------------------------------|------------------------------|
 | File Type | Test Data                    | Evaluation Data              |
-| csv       | [testdata.csv](testdata.csv) | [evaldata.csv](evaldata.csv) |
-| dta       | [testdata.dta](testdata.dta) | [evaldata.dta](evaldata.dta) |
+| csv       | [testdata.csv](data/testdata.csv) | [evaldata.csv](data/evaldata.csv) |
+| dta       | [testdata.dta](data/testdata.dta) | [evaldata.dta](data/evaldata.dta) |
 
 ## Submissions
 
