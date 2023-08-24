@@ -33,7 +33,7 @@ jobs:
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
         env:
-          EVAL_FOLDER: ${{ secrets.EVALFOLDER }}
+          EVAL_FILE: ${{ secrets.EVAL_FILE }}
           DATA_FOLDER: ${{ secrets.DATA_FOLDER }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
