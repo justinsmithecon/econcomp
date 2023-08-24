@@ -45,7 +45,7 @@ When you submit your predictions based on the evaluation data, we will compute t
 
 ## Submissions
 
-All submissions must be in **.csv** format, and contain only two columns: 1) **csd_id**, the numeric ID number for the municipality; 2) **pimm**, the prediction of immigration levels for that municipality.
+All submissions must be in **.csv** format, and contain only two columns: 1) **csdid**, the numeric ID number for the municipality; 2) **pimm**, the prediction of immigration levels for that municipality.
 
 The .csv files must be named with your group name in all lower case letters and no spaces. For instance, if your team name is "The Deadweight Losses" then your submissions must all be named **thedeadweightlosses.csv**
 

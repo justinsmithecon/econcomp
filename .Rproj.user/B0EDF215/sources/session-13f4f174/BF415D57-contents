@@ -39,8 +39,8 @@ evaloutcome<-drive_read_string(EVAL_FILE)%>% read.csv(text=.)
 
 lboard <- function(x){
   groupname <-str_extract(x, "group\\d") %>% str_replace("group", "group ") %>% str_to_title()
-  data <- read_csv(x) %>% full_join(.,evaloutcome, by="idnum")
-  row <- c(groupname, Sys.Date(), format(Sys.time(),'%H:%M'), rmse(data$col87, data$prediction))
+  data <- read_csv(x) %>% full_join(.,evaloutcome, by="csdid")
+  row <- c(groupname, Sys.Date(), format(Sys.time(),'%H:%M'), rmse(data$col87, data$pimm))
   return(row)
 }
 
