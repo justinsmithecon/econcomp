@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -41,6 +41,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -131,12 +133,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
   <ul class="collapse">
   <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
+  <li><a href="#how-to-participate" id="toc-how-to-participate" class="nav-link" data-scroll-target="#how-to-participate">How to Participate</a></li>
   <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">Evaluation</a></li>
   <li><a href="#timeline" id="toc-timeline" class="nav-link" data-scroll-target="#timeline">Timeline</a></li>
   <li><a href="#prizes" id="toc-prizes" class="nav-link" data-scroll-target="#prizes">Prizes</a></li>
   </ul></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#submissions" id="toc-submissions" class="nav-link" data-scroll-target="#submissions">Submissions</a></li>
+  <li><a href="#sec-data" id="toc-sec-data" class="nav-link" data-scroll-target="#sec-data">Data</a></li>
+  <li><a href="#sec-submit" id="toc-sec-submit" class="nav-link" data-scroll-target="#sec-submit">Submissions</a></li>
   <li><a href="#rules" id="toc-rules" class="nav-link" data-scroll-target="#rules">Rules</a></li>
   </ul>
 </nav>
@@ -169,6 +172,15 @@ ul.task-list li input[type="checkbox"] {
 <p>In the 2023-24 year, Laurier Economics is launching its inaugural student competition. We plan on running this competition annually to create a fun learning experience for students outside of the classroom.</p>
 <p>The objective of this year’s competition is to predict immigration levels in Canadian census sub-divisions (equivalent to municipalities). Immigration is important public policy issue in Canada, and we believe that there could be significant benefits to the development of a model that accurately estimates how many immigrants will settle in a particular municipality.</p>
 </section>
+<section id="how-to-participate" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-participate">How to Participate</h3>
+<ul>
+<li>Sign up your team <a href="https://wlu.ca1.qualtrics.com/jfe/form/SV_bkqkuIJ6QbzfWRM"><i class="fa-solid fa-user-plus" aria-label="user-plus"></i></a></li>
+<li>Download the data <a href="#sec-data"><i class="fa-solid fa-link" aria-label="link"></i></a></li>
+<li>Create your model and generate predictions</li>
+<li>Submit your predictions <a href="#sec-submit"><i class="fa-solid fa-link" aria-label="link"></i></a></li>
+</ul>
+</section>
 <section id="evaluation" class="level3">
 <h3 class="anchored" data-anchor-id="evaluation">Evaluation</h3>
 <p>Each submission is scored on its <strong>Root Mean Square Error (RMSE)</strong>, a measure of the average error of the prediction. The submission with the lowest RMSE wins.</p>
@@ -191,11 +203,12 @@ ul.task-list li input[type="checkbox"] {
 <p>Additional Laurier Economics swag will be provided through a random draw among participating teams.</p>
 </section>
 </section>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
+<section id="sec-data" class="level2">
+<h2 class="anchored" data-anchor-id="sec-data">Data</h2>
 <p>The underlying data for the competition is the 2021 Canada Census. Statistics Canada provides various public use versions of this data, including public use microdata files, and “profiles,” which are aggregated Census records at a specific level of geography. The competition uses the profile for Census Sub-Divisions, which are the same as municipalities.</p>
 <p>The data have been separated into a “test” dataset and an “evaluation” dataset. You will create and train your model with the test dataset, which consists of half of the municipalities chosen at random, and includes: a) a host of Census variables that you will use as inputs into your model, and b) the level of immigration that you are trying to predict. Once you have a submission ready you will generate your predictions with the evaluation dataset, which consists of the other half of the municipalities, and only includes the Census inputs. The true immigration levels in the evaluation data are hidden from competitors.</p>
-<p>When you submit your predictions based on the evaluation data, we will compute the RMSE using the true immigration levels for those records and report it on the leaderboard.</p>
+<p>When you submit your predictions based on the evaluation data, we will compute the RMSE using the true immigration levels for those records and report it on the leaderboard at the end of each day.</p>
+<p>Download the data in your preferred format below.</p>
 <table class="table">
 <tbody>
 <tr class="odd">
@@ -215,23 +228,22 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<p>A codebook that describes each variable is here: <a href="data/codebook_testdata.xlsx">codebook_testdata.xlsx</a></p>
 </section>
-<section id="submissions" class="level2">
-<h2 class="anchored" data-anchor-id="submissions">Submissions</h2>
-<p>All submissions must be in <strong>.csv</strong> format, and contain only two columns: 1) <strong>csd_id</strong>, the numeric ID number for the municipality; 2) <strong>pimm</strong>, the prediction of immigration levels for that municipality.</p>
+<section id="sec-submit" class="level2">
+<h2 class="anchored" data-anchor-id="sec-submit">Submissions</h2>
+<p>All submissions must be in <strong>.csv</strong> format, and contain only two columns: 1) <strong>csdid</strong>, the numeric ID number for the municipality; 2) <strong>pimm</strong>, the prediction of immigration levels for that municipality.</p>
 <p>The .csv files must be named with your group name in all lower case letters and no spaces. For instance, if your team name is “The Deadweight Losses” then your submissions must all be named <strong>thedeadweightlosses.csv</strong></p>
-<p>Submit your .csv files here:</p>
+<p>Submit your .csv files here: <a href="https://forms.gle/azMhqbfM1xNsiK546">link to submission form</a></p>
 </section>
 <section id="rules" class="level2">
 <h2 class="anchored" data-anchor-id="rules">Rules</h2>
 <p><strong>Students can only belong to one team</strong></p>
 <p>A student can only be on a single team</p>
 <p><strong>No sharing code privately between teams</strong></p>
-<p>Each team must work independently to complete the predictions. The one exception is that teams may share code publicly with everyone in the competition</p>
+<p>Each team must work independently to complete the predictions.</p>
 <p><strong>Team limits</strong></p>
 <p>Teams of up to 3 students are allowed.</p>
-<p><strong>Cannot predict immigration levels equal to itself</strong></p>
-<p>You must submit an actual number for your predictions based on the evaluation data. You cannot simply say that immigration levels are equal to themselves.</p>
 <p><strong>Data</strong></p>
 <p>Teams can only use the data provided to create your models. No external data is permitted.</p>
 <p><strong>Eligibility</strong></p>
