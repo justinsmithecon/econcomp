@@ -13,10 +13,10 @@ The objective of this year's competition is to predict immigration levels in Can
 
 ### How to Participate
 
-- Sign up your team [{{< fa link >}}](https://wlu.ca1.qualtrics.com/jfe/form/SV_bkqkuIJ6QbzfWRM)
-- Download the data [{{< fa link >}}](#sec-data)
+- Sign up your team [{{< fa arrow-up-right-from-square >}}](https://wlu.ca1.qualtrics.com/jfe/form/SV_bkqkuIJ6QbzfWRM)
+- Download the data [{{< fa arrow-up-right-from-square >}}](#sec-data)
 - Create your model and generate predictions 
-- Submit your predictions [{{< fa link >}}](#sec-submit)
+- Submit your predictions [{{< fa arrow-up-right-from-square >}}](#sec-submit)
 
 ### Evaluation
 
@@ -24,15 +24,24 @@ Each submission is scored on its **Root Mean Square Error (RMSE)**, a measure of
 
 ### Timeline
 
--   **Sign Up a Team** - September 11, 2023 - October 1, 2023
--   **Create Model and Submit Predictions** - October 1, 2023 - March 1, 2024
--   **Competition Deadline** - 11:59pm, March 1, 2024.
--   **Winners Announced** - TBA
+The competition will run for the whole academic year, but there will be two opportunities to sign up: once in the fall term, and once in the winter term.  As an incentive to sign up in the fall, interim prizes will be distributed to the top team at the end of the fall semester.
+
+-   **First Team Sign Up Window** - September 11, 2023 - October 1, 2023 
+-   **Competition Opens** - October 2, 2023
+-   **Interim Prize Deadline** - 11:59pm, December 6, 2023
+-   **Second Team Sign Up Window** - January 8, 2024 - January 29, 2024
+-   **Competition Closes** - 11:59pm, March 1, 2024.
 
 ### Prizes
 
--   **1st Place**: \$600 split between team members, plus Laurier Economics swag.
--   **2nd Place**: \$150 split between team members, plus Laurier Economics swag.
+- Interim Prizes
+
+    - **Leading Team**: $150 Amazon gift card
+
+- Final Prizes
+
+    -   **1st Place**: \$600 split between team members, Laurier Economics sweatshirts, trophy.
+    -   **2nd Place**: \$150 split between team members, Laurier Economics sweatshirts.
 
 Additional Laurier Economics swag will be provided through a random draw among participating teams.
 
