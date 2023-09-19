@@ -9,7 +9,9 @@ website:
     hypothesis:
       theme: clean
       openSidebar: false    
-    
+  open-graph: true
+  twitter-card: 
+    creator: "@justinsmithecon"    
   sidebar:
     logo: "images/hex.png"
     title: "Students Mastering Intriguing Testable Hypotheses"

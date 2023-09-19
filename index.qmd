@@ -72,7 +72,7 @@ Submit your .csv files here: [link to submission form](https://forms.gle/azMhqbf
 
 ## Questions
 
-If you have any questions about the competition or require help with your predictions, contact econdirector\@wlu.ca
+If you have any questions about the competition or require help with your predictions, contact <a href="mailto:econdirector@wlu.ca">econdirector@wlu.ca</a>
 
 ## Rules
 
