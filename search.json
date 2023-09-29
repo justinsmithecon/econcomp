@@ -4,7 +4,28 @@
     "href": "report.html",
     "title": "Leaderboard",
     "section": "",
-    "text": "Leader Board\n    \n    \n    \n      Group Name\n      Date\n      Time\n      RMSE\n    \n  \n  \n    Group 1\n2023-09-27\n19:50\nNaN\n  \n  \n  \n\n\n\n\nLast updated 2023-09-27"
+    "text": "Leader Board\n    \n    \n    \n      Group Name\n      Date\n      Time\n      RMSE\n    \n  \n  \n    Group 1\n2023-09-29\n20:53\nNaN\n  \n  \n  \n\n\n\n\nLast updated 2023-09-29"
+  },
+  {
+    "objectID": "help.html",
+    "href": "help.html",
+    "title": "Helpful Information",
+    "section": "",
+    "text": "On this page you will find useful information to get you started, and to help you along the way. This includes videos, code, and other things."
+  },
+  {
+    "objectID": "help.html#overview",
+    "href": "help.html#overview",
+    "title": "Helpful Information",
+    "section": "",
+    "text": "On this page you will find useful information to get you started, and to help you along the way. This includes videos, code, and other things."
+  },
+  {
+    "objectID": "help.html#videos",
+    "href": "help.html#videos",
+    "title": "Helpful Information",
+    "section": "Videos",
+    "text": "Videos\n\nGetting Started in Stata"
   },
   {
     "objectID": "index.html",
