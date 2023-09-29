@@ -3,7 +3,7 @@
     "path": "~/Library/CloudStorage/OneDrive-WilfridLaurierUniversity/Administrative/UG Chair/econcomp/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "0",
+    "hash": "586209655",
     "contents": "",
     "dirty": false,
     "created": 1694115730749.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "13,11",
+        "cursorPosition": "27,15",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1695155738,
+    "lastKnownWriteTime": 1696020085,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1695155738436,
+    "last_content_update": 1696020085516,
     "read_only": false,
     "read_only_alternatives": []
 }

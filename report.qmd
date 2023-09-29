@@ -1,5 +1,6 @@
 ---
 title: "Leaderboard"
+subtitle: "Laurier Economics Student Competition 2023-24"
 execute: 
   echo: false
   warning: false

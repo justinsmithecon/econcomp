@@ -46,7 +46,7 @@
     "href": "index.html#sec-data",
     "title": "Students Mastering Intriguing Testable Hypotheses",
     "section": "Data",
-    "text": "Data\nThe underlying data for the competition is the 2021 Canada Census. Statistics Canada provides various public use versions of this data, including public use microdata files, and “profiles,” which are aggregated Census records at a specific level of geography. The competition uses the profile for Census Sub-Divisions, which are the same as municipalities.\nThe data have been separated into a “test” dataset and an “evaluation” dataset. You will create and train your model with the test dataset, which consists of half of the municipalities chosen at random, and includes: a) a host of Census variables that you will use as inputs into your model, and b) the level of immigration that you are trying to predict. Once you have a submission ready you will generate your predictions with the evaluation dataset, which consists of the other half of the municipalities, and only includes the Census inputs. The true immigration levels in the evaluation data are hidden from competitors.\nWhen you submit your predictions based on the evaluation data, we will compute the RMSE using the true immigration levels for those records and report it on the leaderboard at the end of each day.\nDownload the data in your preferred format below.\n\n\n\nFile Type\nTest Data\nEvaluation Data\n\n\ncsv\ntestdata.csv\nevaldata.csv\n\n\ndta\ntestdata.dta\nevaldata.dta\n\n\n\nA codebook that describes each variable is here: codebook_testdata.xlsx"
+    "text": "Data\nThe underlying data for the competition is the 2021 Canada Census. Statistics Canada provides various public use versions of this data, including public use microdata files, and “profiles,” which are aggregated Census records at a specific level of geography. The competition uses the profile for Census Sub-Divisions, which are the same as municipalities.\nThe data have been separated into a “test” dataset and an “evaluation” dataset. You will create and train your model with the test dataset, which consists of half of the municipalities chosen at random, and includes: a) a host of Census variables that you will use as inputs into your model, and b) the level of immigration that you are trying to predict (col87 in the test dataset). Once you have a submission ready you will generate your predictions with the evaluation dataset, which consists of the other half of the municipalities, and only includes the Census inputs. The true immigration levels in the evaluation data are hidden from competitors.\nWhen you submit your predictions based on the evaluation data, we will compute the RMSE using the true immigration levels for those records and report it on the leaderboard at the end of each day.\nDownload the data in your preferred format below.\n\n\n\nFile Type\nTest Data\nEvaluation Data\n\n\ncsv\ntestdata.csv\nevaldata.csv\n\n\ndta\ntestdata.dta\nevaldata.dta\n\n\n\nA codebook that describes each variable is here: codebook_testdata.xlsx"
   },
   {
     "objectID": "index.html#sec-submit",
@@ -61,5 +61,26 @@
     "title": "Students Mastering Intriguing Testable Hypotheses",
     "section": "Questions",
     "text": "Questions\nIf you have any questions about the competition or require help with your predictions, contact econdirector@wlu.ca"
+  },
+  {
+    "objectID": "help.html",
+    "href": "help.html",
+    "title": "Helpful Information",
+    "section": "",
+    "text": "On this page you will find useful information to get you started, and to help you along the way. This includes videos, code, and other things."
+  },
+  {
+    "objectID": "help.html#overview",
+    "href": "help.html#overview",
+    "title": "Helpful Information",
+    "section": "",
+    "text": "On this page you will find useful information to get you started, and to help you along the way. This includes videos, code, and other things."
+  },
+  {
+    "objectID": "help.html#videos",
+    "href": "help.html#videos",
+    "title": "Helpful Information",
+    "section": "Videos",
+    "text": "Videos\n\nGetting Started in Stata"
   }
 ]

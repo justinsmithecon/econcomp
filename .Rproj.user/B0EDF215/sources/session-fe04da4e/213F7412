@@ -1,9 +1,9 @@
 {
     "id": "213F7412",
-    "path": "~/Library/CloudStorage/OneDrive-WilfridLaurierUniversity/Administrative/UG Chair/econcomp/index.qmd",
-    "project_path": "index.qmd",
+    "path": "~/Library/CloudStorage/OneDrive-WilfridLaurierUniversity/Administrative/UG Chair/econcomp/help.qmd",
+    "project_path": "help.qmd",
     "type": "quarto_markdown",
-    "hash": "524685552",
+    "hash": "1834422838",
     "contents": "",
     "dirty": false,
     "created": 1691674670630.0,
@@ -12,20 +12,20 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "50,382",
-        "scrollLine": "39",
+        "cursorPosition": "13,38",
+        "scrollLine": "4",
         "rmdVisualMode": "false",
         "rmdVisualWrapConfigured": "true",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "126:1701"
+        "rmdVisualModeLocation": "309:0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1695843856,
+    "lastKnownWriteTime": 1696020377,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1695843856533,
+    "last_content_update": 1696020377891,
     "read_only": false,
     "read_only_alternatives": []
 }
