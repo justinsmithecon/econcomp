@@ -19,9 +19,6 @@ teamlist <- read_xlsx("data/teams.xlsx")
 ```
 
 
-**NOTE: THIS IS A TEST VERSION OF THE LEADERBOARD.  RESULTS ARE NOT REAL AT THIS TIME**
-
-
 ```{r}
 DATA_FOLDER <- Sys.getenv("DATA_FOLDER")
 drive_deauth()
