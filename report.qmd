@@ -44,8 +44,8 @@ evaloutcome<-drive_read_string(EVAL_FILE)%>% read.csv(text=.)
 
 
 lboard <- function(x){
-  groupname <- filter(teamlist, str_detect(shortname, paste(word(x,1), collapse="|"))) %>% select(longname) %>% unlist(use.names = FALSE)
-  year <- filter(teamlist, str_detect(shortname, paste(word(x,1), collapse="|"))) %>% select(year) %>% unlist(use.names = FALSE)  
+  groupname <- filter(teamlist, str_detect(shortname, paste(word(x,1, sep = "[ .]"), collapse="|"))) %>% select(longname) %>% unlist(use.names = FALSE)
+  year <- filter(teamlist, str_detect(shortname, paste(word(x,1, sep = "[ .]"), collapse="|"))) %>% select(year) %>% unlist(use.names = FALSE)    
   submittime <- drivefiles %>% filter(name==x) %>% pull(time) %>% strptime(format = "%Y-%m-%dT%H:%M:%OSZ")
   data <- read_csv(x) %>% full_join(.,evaloutcome, by="csdid")
   row <- c(groupname, format(submittime, format = "%d-%m-%Y"), rmse(data$col87, data$pimm), year)

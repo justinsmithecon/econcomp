@@ -1,0 +1,42 @@
+library(tidyverse)
+library(Metrics)
+library(readxl)
+library(writexl)
+library(gt)
+library(googledrive)
+library(magrittr)
+teamlist <- read_xlsx("data/teams.xlsx")
+
+DATA_FOLDER <- Sys.getenv("DATA_FOLDER")
+drive_deauth()
+drivefiles <- drive_ls(DATA_FOLDER) %>%
+  filter(str_detect(name, paste(teamlist$shortname, collapse="|"))) %>%
+  rowwise() %>% 
+  mutate(time = drive_resource$createdTime) %>%
+  group_by(name) %>%
+  slice_max(time) %>%
+  select(name, id, time)
+for (file_id in drivefiles$id) {
+  drive_download(as_id(file_id), overwrite = TRUE)
+}
+
+filenames <- drivefiles %>% pull(name)
+
+
+EVAL_FILE = Sys.getenv("EVAL_FILE")
+evaloutcome<-drive_read_string(EVAL_FILE)%>% read.csv(text=.)
+
+
+lboard <- function(x){
+  groupname <- filter(teamlist, str_detect(shortname, paste(word(x,1, sep = "[ .]"), collapse="|"))) %>% select(longname) %>% unlist(use.names = FALSE)
+  year <- filter(teamlist, str_detect(shortname, paste(word(x,1, sep = "[ .]"), collapse="|"))) %>% select(year) %>% unlist(use.names = FALSE)  
+  submittime <- drivefiles %>% filter(name==x) %>% pull(time) %>% strptime(format = "%Y-%m-%dT%H:%M:%OSZ")
+  data <- read_csv(x) %>% full_join(.,evaloutcome, by="csdid")
+  row <- c(groupname, format(submittime, format = "%d-%m-%Y"), rmse(data$col87, data$pimm), year)
+  return(row)
+}
+
+x<-lapply(filenames, lboard) %>% 
+  {as.data.frame(do.call(rbind, .))} %>% 
+  mutate(across(c(V3), as.numeric)) %>%
+  arrange(V3)
