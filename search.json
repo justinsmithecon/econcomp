@@ -4,7 +4,7 @@
     "href": "report.html",
     "title": "Leaderboard",
     "section": "",
-    "text": "NOTE: THIS IS A TEST VERSION OF THE LEADERBOARD. RESULTS ARE NOT REAL AT THIS TIME\n\n\n\n\n\n\n  \n    \n      Overall Leader Board\n    \n    \n    \n      Rank\n      Group Name\n      Latest Submission\n      RMSE\n      Year\n    \n  \n  \n    1\nThe Deadweight Losses\n20-10-2023\n9706.883\n2\n  \n  \n  \n\n\n\n\n\n\n\n\n  \n    \n      Leader Board by Year\n    \n    \n    \n      Rank\n      Group Name\n      Latest Submission\n      RMSE\n    \n  \n  \n    \n      Year 2\n    \n    1\nThe Deadweight Losses\n20-10-2023\n9706.883\n  \n  \n  \n\n\n\n\nLast updated 2023-10-20"
+    "text": "Overall Leader Board\n    \n    \n    \n      Rank\n      Group Name\n      Latest Submission\n      RMSE\n      Year\n    \n  \n  \n    1\nThe Deadweight Losses\n20-10-2023\n9706.883\n2\n  \n  \n  \n\n\n\n\n\n\n\n\n  \n    \n      Leader Board by Year\n    \n    \n    \n      Rank\n      Group Name\n      Latest Submission\n      RMSE\n    \n  \n  \n    \n      Year 2\n    \n    1\nThe Deadweight Losses\n20-10-2023\n9706.883\n  \n  \n  \n\n\n\n\nLast updated 2023-10-20"
   },
   {
     "objectID": "help.html",
@@ -53,7 +53,7 @@
     "href": "index.html#sec-submit",
     "title": "Students Mastering Intriguing Testable Hypotheses",
     "section": "Submissions",
-    "text": "Submissions\nAll submissions must be in .csv format, and contain only two columns: 1) csdid, the numeric ID number for the municipality; 2) pimm, the prediction of immigration levels for that municipality.\nThe .csv files must be named with your group name in all lower case letters and no spaces. For instance, if your team name is “The Deadweight Losses” then your submissions must all be named thedeadweightlosses.csv\nSubmit your .csv files here: link to submission form will be posted October 21, 2023."
+    "text": "Submissions\nAll submissions must be in .csv format, and contain only two columns: 1) csdid, the numeric ID number for the municipality; 2) pimm, the prediction of immigration levels for that municipality.\nThe .csv files must be named with your group name in all lower case letters and no spaces. For instance, if your team name is “The Deadweight Losses” then your submissions must all be named thedeadweightlosses.csv\nSubmit your .csv files here: link to submission form"
   },
   {
     "objectID": "index.html#questions",
