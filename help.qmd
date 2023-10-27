@@ -11,4 +11,10 @@ On this page you will find useful information to get you started, and to help yo
 
 ### Getting Started in Stata
 
-{{< video https://youtu.be/_yR_oX8BjqY width="400" height="300" >}}
+{{< video https://youtu.be/8eujLdf4PAo width="400" height="300" >}}
+
+### Getting Started in R
+
+{{< video https://youtu.be/Nifii6NAFBM width="400" height="300" >}}
+
+
