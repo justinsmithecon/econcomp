@@ -25,9 +25,10 @@ drive_deauth()
 drivefiles <- drive_ls(DATA_FOLDER) %>%
   filter(str_detect(name, paste(teamlist$shortname, collapse="|"))) %>%
   rowwise() %>% 
-  mutate(time = drive_resource$createdTime) %>%
-  group_by(name) %>%
+  mutate(time = drive_resource$createdTime, gname = word(name,1, sep = "[ .]")) %>%
+  group_by(gname) %>%
   slice_max(time) %>%
+  ungroup() %>%
   select(name, id, time)
 for (file_id in drivefiles$id) {
   drive_download(as_id(file_id), overwrite = TRUE)
