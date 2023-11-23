@@ -12,13 +12,13 @@
     "properties": {
         "expression": "drivefiles",
         "caption": "drivefiles",
-        "totalObservations": "2",
-        "displayedObservations": "2",
+        "totalObservations": "5",
+        "displayedObservations": "5",
         "variables": "3",
-        "cacheKey": "EFAE89AF",
+        "cacheKey": "6828D775",
         "object": "drivefiles",
         "environment": "",
-        "contentUrl": "grid_resource/gridviewer.html?env=&obj=drivefiles&cache_key=EFAE89AF&max_display_columns=50",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=drivefiles&cache_key=6828D775&max_display_columns=50",
         "preview": "0",
         "source_window_id": "",
         "Source": "Source"
