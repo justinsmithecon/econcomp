@@ -24,7 +24,7 @@ Each submission is scored on its **Root Mean Square Error (RMSE)**, a measure of
 
 ### Timeline
 
-The competition will run for the whole academic year, but there will be two opportunities to sign up: once in the fall term, and once in the winter term. As an incentive to sign up in the fall, interim prizes will be distributed to the top team at the end of the fall semester.
+The competition will run through most of the Winter 2025 semester.  See below for key dates:
 
 -   **Sign Up Window** - January 6, 2025 to January 24, 2025 
 -   **Competition Opens** - January 27, 2025
