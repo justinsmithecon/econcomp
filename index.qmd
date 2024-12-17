@@ -34,7 +34,7 @@ The competition will run for the whole academic year, but there will be two oppo
 
 Prizes are allocated separately by year level of the team members. If a team has a mix of year levels, the prize is allocated to the highest year level of the team members. Year levels are: 1st, 2nd, 3rd, 4th.
 
--   **1st Place at Each Year Level**: \$300 split between team members.
+-   **1st Place at Each Year Level**: TBD <!-- \$300 split between team members. -->
 
 ## Data {#sec-data}
 
