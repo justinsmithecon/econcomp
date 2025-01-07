@@ -13,7 +13,7 @@ The objective of this year's competition is to predict individual hourly wages u
 
 ### How to Participate
 
--   Sign up your team <!-- [{{< fa arrow-up-right-from-square >}}](https://wlu.ca1.qualtrics.com/jfe/form/SV_7ZMqcJ1qKIHhwfI) -->
+-   Sign up your team [{{< fa arrow-up-right-from-square >}}](https://wlu.ca1.qualtrics.com/jfe/form/SV_7ZMqcJ1qKIHhwfI)
 -   Download the data [{{< fa arrow-up-right-from-square >}}](#sec-data)
 -   Create your model and generate predictions
 -   Submit your predictions [{{< fa arrow-up-right-from-square >}}](#sec-submit)
@@ -34,7 +34,7 @@ The competition will run through most of the Winter 2025 semester.  See below fo
 
 Prizes are allocated separately by year level of the team members. If a team has a mix of year levels, the prize is allocated to the highest year level of the team members. Year levels are: 1st, 2nd, 3rd, 4th.
 
--   **1st Place at Each Year Level**: TBD <!-- \$300 split between team members. -->
+-   **1st Place at Each Year Level**: \$300 split between team members.
 
 ## Data {#sec-data}
 
