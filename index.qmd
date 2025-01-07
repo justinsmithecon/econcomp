@@ -49,8 +49,8 @@ Download the data in your preferred format below.
 |           |                                   |                                   |
 |----------------|----------------------------|----------------------------|
 | File Type | Training Data                         | Evaluation Data                   |
-| csv       | [traindata.csv](data/testdata.csv) | [evaldata.csv](data/evaldata.csv) |
-| dta       | [traindata.dta](data/testdata.dta) | [evaldata.dta](data/evaldata.dta) |
+| csv       | [traindata.csv](data/traindata.csv) | [evaldata.csv](data/evaldata.csv) |
+| dta       | [traindata.dta](data/traindata.dta) | [evaldata.dta](data/evaldata.dta) |
 
 A website that describes each variable is here: [March 2024 Labour Force Survey](https://borealisdata.ca/ddi_explore/index.html?siteUrl=https://borealisdata.ca&dvLocale=en&fileId=722312)
 
