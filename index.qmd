@@ -36,6 +36,8 @@ Prizes are allocated separately by year level of the team members. If a team has
 
 -   **1st Place at Each Year Level**: \$300 split between team members.
 
+Your achievement will also be celebrated at a year-end event where we will celebrate the accomplishments of economics students over the past academic year.
+
 ## Data {#sec-data}
 
 The underlying data for the competition is the Canadian Labour Force Survey (LFS), a monthly survey of about 50,000 households on matters related to employment that forms the primary source of information on the Canadian labour market.  
@@ -56,7 +58,7 @@ A website that describes each variable is here: [March 2024 Labour Force Survey]
 
 ## Submissions {#sec-submit}
 
-All submissions must be in **.csv** format, and contain only two columns: 1) **rec_num**, the numeric ID number for the municipality; 2) **phrlyearn**, the prediction of immigration levels for that municipality.
+All submissions must be in **.csv** format, and contain only two columns: 1) **rec_num**, the numeric ID number for the person; 2) **phrlyearn**, the prediction of wages for the individual.
 
 The .csv files must be named with your group name in all lower case letters and no spaces. For instance, if your team name is "The Deadweight Losses" then your submissions must all be named **thedeadweightlosses.csv**
 
