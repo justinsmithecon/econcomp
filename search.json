@@ -14,21 +14,30 @@
     "href": "help.html",
     "title": "Helpful Information",
     "section": "",
-    "text": "On this page you will find useful information to get you started, and to help you along the way. This includes videos, code, and other things."
+    "text": "On this page you will find useful information to get you started, and to help you along the way. This includes videos, code, and other things.",
+    "crumbs": [
+      "Help"
+    ]
   },
   {
     "objectID": "help.html#overview",
     "href": "help.html#overview",
     "title": "Helpful Information",
     "section": "",
-    "text": "On this page you will find useful information to get you started, and to help you along the way. This includes videos, code, and other things."
+    "text": "On this page you will find useful information to get you started, and to help you along the way. This includes videos, code, and other things.",
+    "crumbs": [
+      "Help"
+    ]
   },
   {
     "objectID": "help.html#videos",
     "href": "help.html#videos",
     "title": "Helpful Information",
     "section": "Videos",
-    "text": "Videos\n\nGetting Started in Stata\n\n\n\nGetting Started in R\n\n\n\nGetting Started in Excel"
+    "text": "Videos\n\n\n\nGetting Started in R",
+    "crumbs": [
+      "Help"
+    ]
   },
   {
     "objectID": "index.html",
