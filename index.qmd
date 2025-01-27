@@ -13,7 +13,7 @@ The objective of this year's competition is to predict individual hourly wages u
 
 ### How to Participate
 
--   Sign up your team [{{< fa arrow-up-right-from-square >}}](https://wlu.ca1.qualtrics.com/jfe/form/SV_7ZMqcJ1qKIHhwfI)
+-   Sign up your team <!-- [{{< fa arrow-up-right-from-square >}}](https://wlu.ca1.qualtrics.com/jfe/form/SV_7ZMqcJ1qKIHhwfI) -->
 -   Download the data [{{< fa arrow-up-right-from-square >}}](#sec-data)
 -   Create your model and generate predictions
 -   Submit your predictions [{{< fa arrow-up-right-from-square >}}](#sec-submit)
