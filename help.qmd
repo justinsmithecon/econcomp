@@ -1,6 +1,6 @@
 ---
 title: "Helpful Information"
-subtitle: "Laurier Economics Student Competition 2023-24"
+subtitle: "Laurier Economics Student Competition 2024-25"
 ---
 
 ## Overview
@@ -9,16 +9,16 @@ On this page you will find useful information to get you started, and to help yo
 
 ## Videos
 
-### Getting Started in Stata
+<!-- ### Getting Started in Stata -->
 
-{{< video https://youtu.be/8eujLdf4PAo width="400" height="300" >}}
+<!-- {{< video https://youtu.be/8eujLdf4PAo width="400" height="300" >}} -->
 
 ### Getting Started in R
 
-{{< video https://youtu.be/Nifii6NAFBM width="400" height="300" >}}
+{{< video https://youtu.be/f_Vgaq0konY width="400" height="300" >}}
 
 
-### Getting Started in Excel
+<!-- ### Getting Started in Excel -->
 
-{{< video https://youtu.be/Dq49IpKiclQ width="400" height="300" >}}
+<!-- {{< video https://youtu.be/Dq49IpKiclQ width="400" height="300" >}} -->
 

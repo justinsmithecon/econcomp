@@ -25,8 +25,8 @@ website:
         text: Overview
       - href: report.qmd
         text: Leaderboard
-      # - href: help.qmd
-      #   text: Help        
+      - href: help.qmd
+        text: Help        
 
 
 format:
