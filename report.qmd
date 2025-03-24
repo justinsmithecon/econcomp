@@ -97,4 +97,4 @@ x %>% arrange(V4, V3) %>%
 unlink("*.csv")
 ```
 
-Last updated `r format(now(), '%Y-%m-%d %H:%M')`
+Last updated `r format(now(), '%Y-%m-%d %H:%M', tz = 'America/Toronto')`
