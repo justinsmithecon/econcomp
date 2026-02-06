@@ -1,5 +1,33 @@
 [
   {
+    "objectID": "report.html",
+    "href": "report.html",
+    "title": "Leaderboard",
+    "section": "",
+    "text": "Overall Leader Board\n\n\nRank\nGroup Name\nLatest Submission\nRMSE\nYear\n\n\n\n\n1\nThe Deadweight Losses\n24-01-2025\n0.1304817\n3\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeader Board by Year\n\n\nRank\nGroup Name\nLatest Submission\nRMSE\n\n\n\n\nYear 3\n\n\n1\nThe Deadweight Losses\n24-01-2025\n0.1304817\n\n\n\n\n\n\n\nLast updated 2026-02-06 14:21"
+  },
+  {
+    "objectID": "help.html",
+    "href": "help.html",
+    "title": "Helpful Information",
+    "section": "",
+    "text": "On this page you will find useful information to get you started, and to help you along the way. This includes videos, code, and other things."
+  },
+  {
+    "objectID": "help.html#overview",
+    "href": "help.html#overview",
+    "title": "Helpful Information",
+    "section": "",
+    "text": "On this page you will find useful information to get you started, and to help you along the way. This includes videos, code, and other things."
+  },
+  {
+    "objectID": "help.html#videos",
+    "href": "help.html#videos",
+    "title": "Helpful Information",
+    "section": "Videos",
+    "text": "Videos\n\nGetting Started in Stata\n\n\n\nGetting Started in R\n\n\n\nGetting Started in Excel"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Students Mastering Intriguing Testable Hypotheses",
@@ -58,26 +86,5 @@
     "crumbs": [
       "Overview"
     ]
-  },
-  {
-    "objectID": "help.html",
-    "href": "help.html",
-    "title": "Helpful Information",
-    "section": "",
-    "text": "On this page you will find useful information to get you started, and to help you along the way. This includes videos, code, and other things."
-  },
-  {
-    "objectID": "help.html#overview",
-    "href": "help.html#overview",
-    "title": "Helpful Information",
-    "section": "",
-    "text": "On this page you will find useful information to get you started, and to help you along the way. This includes videos, code, and other things."
-  },
-  {
-    "objectID": "help.html#videos",
-    "href": "help.html#videos",
-    "title": "Helpful Information",
-    "section": "Videos",
-    "text": "Videos\n\nGetting Started in Stata\n\n\n\nGetting Started in R\n\n\n\nGetting Started in Excel"
   }
 ]

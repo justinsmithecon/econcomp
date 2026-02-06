@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://justinsmithecon.github.io/econcomp/index.html</loc>
-    <lastmod>2026-02-06T17:46:01.199Z</lastmod>
+    <loc>https://justinsmithecon.github.io/econcomp/report.html</loc>
+    <lastmod>2026-02-06T19:18:30.944Z</lastmod>
   </url>
   <url>
     <loc>https://justinsmithecon.github.io/econcomp/help.html</loc>
-    <lastmod>2026-02-06T17:46:01.195Z</lastmod>
+    <lastmod>2026-02-06T19:18:30.939Z</lastmod>
+  </url>
+  <url>
+    <loc>https://justinsmithecon.github.io/econcomp/index.html</loc>
+    <lastmod>2026-02-06T19:18:30.942Z</lastmod>
   </url>
 </urlset>
