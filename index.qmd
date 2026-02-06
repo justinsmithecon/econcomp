@@ -9,7 +9,7 @@ subtitle: "Laurier Economics Student Competition 2025-26"
 
 Welcome to the third annual Students Mastering Intriguing Testable Hypoheses (SMITH) competition.  We run this event annually to create a fun learning experience for Laurier Economics students outside of the classroom.
 
-The objective of this year's competition is to predict winning percentage by team in the NHL using past information. Professional sports provide a natural laboratory for economic analysis. NHL teams operate under budget constraints, face uncertainty, and must make forward-looking decisions using imperfect information. Using only information available before the season begins, participants are asked to forecast team performance out of sample. The goal is not to explain past outcomes, but to make accurate predictions under uncertainty, applying core economic ideas. The methods used here mirror those economists use to forecast employment, productivity, and growth in real-world settings.
+The objective of this year's competition is to predict end of season winning percentage by team in the NHL using information available at the beginning of a season. Professional sports provide a natural laboratory for economic analysis. NHL teams operate under budget constraints, face uncertainty, and must make forward-looking decisions using imperfect information. Using only information available before the season begins, participants are asked to forecast team performance out of sample. The goal is not to explain past outcomes, but to make accurate predictions under uncertainty, applying core economic ideas. The methods used here mirror those economists use to forecast employment, productivity, and growth in real-world settings.
 
 ### How to Participate
 
@@ -42,7 +42,7 @@ Your achievement will also be celebrated at a year-end event where we will celeb
 
 The underlying data for the competition is a collection of NHL team stats downloaded from Natural Stattrick.  
 
-You are provided with two datasets: 1) the "training" data, and 2) the "evaluation" data. You will create and estimate your model with the training dataset, which for the 2014-15 season through the 2023-24 has current year winning percentage, and a large set of statistics for the previous season and the average of those same statistics for the prior three seasons.  Once you have a submission ready you will generate your predictions for winning percentage for the 24-25 season with the evaluation dataset, which has all the same variables as the training dataset minus the current season winning percentage. 
+You are provided with two datasets: 1) the "training" data, and 2) the "evaluation" data. You will create and estimate your model with the training dataset, which for the 2014-15 through the 2023-24 seasons has current year winning percentage, a large set of statistics for the previous season, and the average of those same statistics for the prior three seasons.  Once you have a submission ready you will generate your predictions for winning percentage for the 24-25 season with the evaluation dataset, which has all the same variables as the training dataset minus the current season winning percentage. 
 
 When you submit your predictions based on the evaluation data, we will compute the RMSE using the true 24-25 winning percentage for those records and report it on the leaderboard at the end of each day.
 
@@ -62,7 +62,7 @@ All submissions must be in **.csv** format, and contain only two columns: 1) **t
 
 The .csv files must be named with your group name in all lower case letters and no spaces. For instance, if your team name is "The Deadweight Losses" then your submissions must all be named **thedeadweightlosses.csv**
 
-Submit your .csv files here: [link to submission form](https://forms.gle/azMhqbfM1xNsiK546)
+<!-- Submit your .csv files here: [link to submission form](https://forms.gle/azMhqbfM1xNsiK546)-->
 
 
 
