@@ -23,10 +23,10 @@ website:
     contents:
       - href: index.qmd
         text: Overview
-      - href: report.qmd
-        text: Leaderboard
-      - href: help.qmd
-        text: Help        
+#      - href: report.qmd
+#        text: Leaderboard
+#      - href: help.qmd
+#        text: Help        
 
 
 format:
