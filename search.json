@@ -4,7 +4,7 @@
     "href": "report.html",
     "title": "Leaderboard",
     "section": "",
-    "text": "Overall Leader Board\n\n\nRank\nGroup Name\nLatest Submission\nRMSE\nYear\nV5\nV6\n\n\n\n\n1\nMarginal Revolutionaries\n24-02-2026\n0.05672544\n4\nMarginal Revolutionaries\n24-02-2026\n\n\n2\nThe Deadweight Losses\n24-01-2025\n0.13048173\n3\nThe Deadweight Losses\n24-01-2025\n\n\n3\nRecession Obsession\nRecession Obsession\nNA\n0.0634271902074714\n3\n3\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeader Board by Year\n\n\nRank\nGroup Name\nLatest Submission\nRMSE\nV5\nV6\n\n\n\n\nYear 0.0634271902074714\n\n\n1\nRecession Obsession\nRecession Obsession\nNA\n3\n3\n\n\nYear 3\n\n\n1\nThe Deadweight Losses\n24-01-2025\n0.13048173\nThe Deadweight Losses\n24-01-2025\n\n\nYear 4\n\n\n1\nMarginal Revolutionaries\n24-02-2026\n0.05672544\nMarginal Revolutionaries\n24-02-2026\n\n\n\n\n\n\n\nLast updated 2026-02-24 17:08",
+    "text": "Overall Leader Board\n\n\nRank\nGroup Name\nLatest Submission\nRMSE\nYear\n\n\n\n\n1\nMarginal Revolutionaries\n24-02-2026\n0.05672544\n4\n\n\n2\nRecession Obsession\n24-02-2026\n0.06342719\n3\n\n\n3\nThe Deadweight Losses\n24-01-2025\n0.13048173\n3\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeader Board by Year\n\n\nRank\nGroup Name\nLatest Submission\nRMSE\n\n\n\n\nYear 3\n\n\n1\nRecession Obsession\n24-02-2026\n0.06342719\n\n\n2\nThe Deadweight Losses\n24-01-2025\n0.13048173\n\n\nYear 4\n\n\n1\nMarginal Revolutionaries\n24-02-2026\n0.05672544\n\n\n\n\n\n\n\nLast updated 2026-02-24 17:23",
     "crumbs": [
       "Leaderboard"
     ]
