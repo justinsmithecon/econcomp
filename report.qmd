@@ -32,6 +32,7 @@ fuzzy_match_team <- function(filestem, teamlist, max_dist = 2) {
 ```{r}
 DATA_FOLDER <- Sys.getenv("DATA_FOLDER")
 drive_deauth()
+
 drivefiles <- drive_ls(DATA_FOLDER) %>%
   mutate(filestem = tolower(word(name, 1, sep = "[ .]"))) %>%
   filter(sapply(filestem, function(s) {
@@ -43,71 +44,197 @@ drivefiles <- drive_ls(DATA_FOLDER) %>%
   slice_max(time) %>%
   ungroup() %>%
   select(name, id, time)
+
 for (file_id in drivefiles$id) {
   drive_download(as_id(file_id), overwrite = TRUE)
 }
 
 filenames <- drivefiles %>% pull(name)
 
+EVAL_FILE <- Sys.getenv("EVAL_FILE")
+evaloutcome <- drive_read_string(EVAL_FILE) %>% read.csv(text = .)
 
-EVAL_FILE = Sys.getenv("EVAL_FILE")
-evaloutcome<-drive_read_string(EVAL_FILE)%>% read.csv(text=.)
+# lboard(): validates and scores one submission file.
+# Always returns a data.frame — either a scored row (status="ok") or an
+# error row (status="error") with a plain-English description of the problem.
+lboard <- function(x) {
 
+  make_error <- function(msg) {
+    data.frame(status="error", filename=x, issue=msg,
+               groupname=NA_character_, submitdate=NA_character_,
+               rmse=NA_real_, year=NA_character_, stringsAsFactors=FALSE)
+  }
 
-lboard <- function(x){
-  filestem   <- tolower(word(x, 1, sep = "[ .]"))
-  match_row  <- fuzzy_match_team(filestem, teamlist)
-  groupname  <- match_row$longname
-  year       <- match_row$year
-  submittime <- drivefiles %>% filter(name==x) %>% pull(time) %>% strptime(format = "%Y-%m-%dT%H:%M:%OSZ")
-  data <- read_csv(x) %>% full_join(.,evaloutcome, by="team")
-  row <- c(groupname, format(submittime, format = "%d-%m-%Y"), rmse(data$winperc, data$pwinperc), year)
-  return(row)
+  # 1. Fuzzy-match filename stem to a registered team
+  filestem  <- tolower(word(x, 1, sep = "[ .]"))
+  match_row <- fuzzy_match_team(filestem, teamlist)
+  if (is.null(match_row)) {
+    return(make_error(paste0(
+      "Filename stem '", filestem,
+      "' did not match any known team shortname (max edit distance 2)."
+    )))
+  }
+  groupname <- match_row$longname
+  year      <- as.character(match_row$year)
+
+  # 2. Parse submission timestamp (non-fatal — shows "(unknown date)" if it fails)
+  raw_time   <- drivefiles %>% filter(name == x) %>% pull(time)
+  submittime <- tryCatch(strptime(raw_time, format = "%Y-%m-%dT%H:%M:%OSZ"),
+                         error = function(e) NA)
+  submitdate <- if (!is.null(submittime) && !is.na(submittime)) {
+    format(submittime, format = "%d-%m-%Y")
+  } else "(unknown date)"
+
+  # 3. Read the CSV file
+  data <- tryCatch(read_csv(x, show_col_types = FALSE), error = function(e) NULL)
+  if (is.null(data)) {
+    return(make_error(paste0(
+      "Could not read '", x, "'. File may be corrupt or not a valid CSV."
+    )))
+  }
+
+  # 4. Validate required columns are present
+  missing_cols <- setdiff(c("team", "pwinperc"), names(data))
+  if (length(missing_cols) > 0) {
+    return(make_error(paste0(
+      "Missing required column(s): ", paste(missing_cols, collapse = ", "),
+      ". Submission must contain 'team' and 'pwinperc'."
+    )))
+  }
+
+  # 5. Validate pwinperc is numeric
+  pwinperc_num <- suppressWarnings(as.numeric(data$pwinperc))
+  if (all(is.na(pwinperc_num))) {
+    return(make_error(
+      "Column 'pwinperc' contains no numeric values. Predictions must be numeric winning percentages."
+    ))
+  }
+  data$pwinperc <- pwinperc_num
+
+  # 6. Join with evaluation outcomes
+  joined <- full_join(data, evaloutcome, by = "team")
+
+  # 7. Check for NHL team name mismatches
+  n_unmatched <- sum(is.na(joined$pwinperc))
+  n_expected  <- nrow(evaloutcome)
+  if (n_unmatched == n_expected) {
+    return(make_error(paste0(
+      "No team names matched the evaluation file. ",
+      "Check that the 'team' column uses exact NHL full names (e.g. 'Anaheim Ducks')."
+    )))
+  }
+  # Partial mismatch: non-fatal — team still scored but a warning note is added
+  mismatch_note <- if (n_unmatched > 0) {
+    unmatched <- joined$team[is.na(joined$pwinperc)]
+    paste0("[Warning: ", n_unmatched, " team(s) missing predictions: ",
+           paste(head(unmatched, 5), collapse = ", "),
+           if (n_unmatched > 5) paste0(", +", n_unmatched - 5, " more") else "",
+           ". RMSE may be inflated.]")
+  } else ""
+
+  # 8. Compute RMSE
+  score <- tryCatch(rmse(joined$winperc, joined$pwinperc), error = function(e) NA_real_)
+  if (is.na(score) || is.nan(score) || is.infinite(score)) {
+    return(make_error("RMSE could not be computed (NA/NaN/Inf result)."))
+  }
+
+  # 9. Return scored row
+  data.frame(status="ok", filename=x, issue=mismatch_note,
+             groupname=groupname, submitdate=submitdate,
+             rmse=score, year=year, stringsAsFactors=FALSE)
 }
 
-x<-lapply(filenames, lboard) %>% 
-  {as.data.frame(do.call(rbind, .))} %>% 
-  mutate(across(c(V3), as.numeric)) %>%
-  arrange(V3)
+# safe_lboard(): outer safety net that catches any error escaping lboard()
+safe_lboard <- function(x) {
+  tryCatch(lboard(x), error = function(e) {
+    data.frame(status="error", filename=x,
+               issue=paste0("Unexpected error: ", conditionMessage(e)),
+               groupname=NA_character_, submitdate=NA_character_,
+               rmse=NA_real_, year=NA_character_, stringsAsFactors=FALSE)
+  })
+}
+
+# Process all submissions; split into valid scores and issues
+all_results <- bind_rows(lapply(filenames, safe_lboard))
+
+valid_results <- all_results %>%
+  filter(status == "ok") %>%
+  mutate(rmse = as.numeric(rmse)) %>%
+  arrange(rmse)
+
+# Partial-mismatch entries (non-empty issue) appear in BOTH tables:
+# on the leaderboard (with their RMSE) and in the issues table (with the warning)
+issues_results <- all_results %>%
+  filter(status == "error" | nchar(issue) > 0) %>%
+  select(filename, issue)
 
 
-x %>% mutate(Rank = row_number()) %>%
+# Overall Leaderboard
+valid_results %>%
+  mutate(Rank = row_number()) %>%
+  select(Rank, groupname, submitdate, rmse, year) %>%
   gt() %>%
   tab_header(title = "Overall Leader Board") %>%
   cols_label(
-    V1 = "Group Name",
-    V2 = "Latest Submission",
-    V3 = "RMSE",
-    V4 = "Year"
+    groupname  = "Group Name",
+    submitdate = "Latest Submission",
+    rmse       = "RMSE",
+    year       = "Year"
   ) %>%
   cols_align(
-    V1:V4,
+    columns = c(groupname, submitdate, rmse, year),
     align = "center"
   ) %>%
-  cols_move_to_start(columns = Rank) 
+  cols_move_to_start(columns = Rank)
 
 
-x %>% arrange(V4, V3) %>%
-  mutate(V4 = if_else(V4 != "MABE", paste0("Year ", V4), V4)) %>%
-  group_by(V4) %>%
-  mutate(Rank = row_number()) %>% ungroup() %>%
-  gt(groupname_col = "V4") %>%
+# By-Year Leaderboard
+valid_results %>%
+  arrange(year, rmse) %>%
+  mutate(year = if_else(year != "MABE", paste0("Year ", year), year)) %>%
+  group_by(year) %>%
+  mutate(Rank = row_number()) %>%
+  ungroup() %>%
+  select(Rank, groupname, submitdate, rmse, year) %>%
+  gt(groupname_col = "year") %>%
   tab_header(title = "Leader Board by Year") %>%
   cols_label(
-    V1 = "Group Name",
-    V2 = "Latest Submission",
-    V3 = "RMSE",
-    V4 = "Year"
+    groupname  = "Group Name",
+    submitdate = "Latest Submission",
+    rmse       = "RMSE",
+    year       = "Year"
   ) %>%
   cols_align(
-    V1:V4,
+    columns = c(groupname, submitdate, rmse, year),
     align = "center"
   ) %>%
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_row_groups()
   ) %>%
-  cols_move_to_start(columns = Rank) 
+  cols_move_to_start(columns = Rank)
+
+
+# Submission Issues table — only renders when there are problems to report
+if (nrow(issues_results) > 0) {
+  issues_results %>%
+    gt() %>%
+    tab_header(title = "Submission Issues") %>%
+    cols_label(
+      filename = "File / Team",
+      issue    = "Issue Description"
+    ) %>%
+    cols_align(columns = filename, align = "center") %>%
+    cols_align(columns = issue, align = "left") %>%
+    tab_style(
+      style = cell_fill(color = "#fff3cd"),
+      locations = cells_body()
+    ) %>%
+    tab_style(
+      style = cell_text(weight = "bold"),
+      locations = cells_column_labels()
+    )
+}
 
 unlink("*.csv")
 ```
