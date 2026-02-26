@@ -16,6 +16,16 @@ library(gt)
 library(googledrive)
 library(magrittr)
 teamlist <- read_xlsx("data/teams.xlsx")
+
+# Fuzzy-match a filename stem to the closest team shortname.
+# max_dist = maximum Levenshtein edit distance allowed (2 catches most typos).
+fuzzy_match_team <- function(filestem, teamlist, max_dist = 2) {
+  filestem   <- tolower(trimws(filestem))
+  shortnames <- tolower(teamlist$shortname)
+  dists      <- adist(filestem, shortnames)[1, ]
+  best_idx   <- which.min(dists)
+  if (dists[best_idx] <= max_dist) teamlist[best_idx, ] else NULL
+}
 ```
 
 
@@ -23,9 +33,12 @@ teamlist <- read_xlsx("data/teams.xlsx")
 DATA_FOLDER <- Sys.getenv("DATA_FOLDER")
 drive_deauth()
 drivefiles <- drive_ls(DATA_FOLDER) %>%
-  filter(str_detect(name, paste(teamlist$shortname, collapse="|"))) %>%
-  rowwise() %>% 
-  mutate(time = drive_resource$createdTime, gname = word(name,1, sep = "[ .]")) %>%
+  mutate(filestem = tolower(word(name, 1, sep = "[ .]"))) %>%
+  filter(sapply(filestem, function(s) {
+    min(adist(s, tolower(teamlist$shortname))[1, ]) <= 2
+  })) %>%
+  rowwise() %>%
+  mutate(time = drive_resource$createdTime, gname = word(name, 1, sep = "[ .]")) %>%
   group_by(gname) %>%
   slice_max(time) %>%
   ungroup() %>%
@@ -42,8 +55,10 @@ evaloutcome<-drive_read_string(EVAL_FILE)%>% read.csv(text=.)
 
 
 lboard <- function(x){
-  groupname <- filter(teamlist, str_detect(shortname, paste(word(x,1, sep = "[ .]"), collapse="|"))) %>% select(longname) %>% unlist(use.names = FALSE)
-  year <- filter(teamlist, str_detect(shortname, paste(word(x,1, sep = "[ .]"), collapse="|"))) %>% select(year) %>% unlist(use.names = FALSE)    
+  filestem   <- tolower(word(x, 1, sep = "[ .]"))
+  match_row  <- fuzzy_match_team(filestem, teamlist)
+  groupname  <- match_row$longname
+  year       <- match_row$year
   submittime <- drivefiles %>% filter(name==x) %>% pull(time) %>% strptime(format = "%Y-%m-%dT%H:%M:%OSZ")
   data <- read_csv(x) %>% full_join(.,evaloutcome, by="team")
   row <- c(groupname, format(submittime, format = "%d-%m-%Y"), rmse(data$winperc, data$pwinperc), year)
