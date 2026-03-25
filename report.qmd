@@ -88,9 +88,7 @@ lboard <- function(x) {
   # 3. Read the CSV file
   data <- tryCatch(read_csv(x, show_col_types = FALSE), error = function(e) NULL)
   if (is.null(data)) {
-    return(make_error(paste0(
-      "Could not read '", x, "'. File may be corrupt or not a valid CSV."
-    )))
+    return(make_error("Could not read submission file. File may be corrupt or not a valid CSV."))
   }
 
   # 4. Validate required columns are present
@@ -166,7 +164,8 @@ valid_results <- all_results %>%
 # on the leaderboard (with their RMSE) and in the issues table (with the warning)
 issues_results <- all_results %>%
   filter(status == "error" | nchar(issue) > 0) %>%
-  select(filename, issue)
+  mutate(team = if_else(!is.na(groupname), groupname, word(filename, 1, sep = "[ .]"))) %>%
+  select(team, issue)
 
 
 # Overall Leaderboard
@@ -221,10 +220,10 @@ if (nrow(issues_results) > 0) {
     gt() %>%
     tab_header(title = "Submission Issues") %>%
     cols_label(
-      filename = "File / Team",
-      issue    = "Issue Description"
+      team  = "Team",
+      issue = "Issue Description"
     ) %>%
-    cols_align(columns = filename, align = "center") %>%
+    cols_align(columns = team, align = "center") %>%
     cols_align(columns = issue, align = "left") %>%
     tab_style(
       style = cell_fill(color = "#fff3cd"),
