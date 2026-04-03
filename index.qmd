@@ -3,6 +3,11 @@ title: "Students Mastering Intriguing Testable Hypotheses"
 subtitle: "Laurier Economics Student Competition 2025-26"
 ---
 
+::: {.callout-important}
+## Competition Complete!
+The 2025-26 SMITH Competition has concluded. Congratulations to all participants and winners! Check the [Leaderboard](report.qmd) for final results and winners at each year level.
+:::
+
 ## Overview
 
 ### Description

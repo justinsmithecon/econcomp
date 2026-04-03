@@ -1,7 +1,7 @@
 ---
-title: "Leaderboard"
+title: "Final Results"
 subtitle: "Laurier Economics Student Competition 2025-26"
-execute: 
+execute:
   echo: false
   warning: false
   message: false
@@ -191,6 +191,40 @@ valid_results %>%
   cols_move_to_start(columns = Rank)
 
 
+# Winners by Year Level
+winners <- valid_results %>%
+  arrange(year, rmse) %>%
+  mutate(year_label = if_else(year != "MABE", paste0("Year ", year), year)) %>%
+  group_by(year) %>%
+  slice_min(rmse, n = 1) %>%
+  ungroup() %>%
+  select(year_label, groupname, rmse)
+
+winners %>%
+  gt() %>%
+  tab_header(
+    title = md("**Winners by Year Level**"),
+    subtitle = "SMITH Competition 2025-26"
+  ) %>%
+  cols_label(
+    year_label = "Year Level",
+    groupname  = "Winning Team",
+    rmse       = "RMSE"
+  ) %>%
+  cols_align(align = "center") %>%
+  tab_style(
+    style = list(
+      cell_fill(color = "#ffd700"),
+      cell_text(weight = "bold")
+    ),
+    locations = cells_body()
+  ) %>%
+  tab_style(
+    style = cell_text(weight = "bold", size = "large"),
+    locations = cells_column_labels()
+  )
+
+
 # By-Year Leaderboard
 valid_results %>%
   arrange(year, rmse) %>%
@@ -214,6 +248,13 @@ valid_results %>%
   tab_style(
     style = cell_text(weight = "bold"),
     locations = cells_row_groups()
+  ) %>%
+  tab_style(
+    style = list(
+      cell_fill(color = "#ffd700"),
+      cell_text(weight = "bold")
+    ),
+    locations = cells_body(rows = Rank == 1)
   ) %>%
   cols_move_to_start(columns = Rank)
 
